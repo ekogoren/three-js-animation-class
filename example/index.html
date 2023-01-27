@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My first three.js app</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #animation {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="animation"></div>
+    <script src="./scripts/three.min.js"></script>
+    <script src="./scripts/GLFT.js"></script>
+    <script src="./scripts/OrbitControls.js"></script>
+    <script src="../../src/three-js-animation-class.js"></script>
+    <script>
+      const threeAnimation = new ThreeAnimation("animation");
+      threeAnimation.init(); //prepare the scene
+
+      const telescopeDescendAndRotate = {
+        path: "./models/telescope.glb",
+        name: "telescope",
+        initialProperties: {
+          scale: {
+            x: 20.050000000000008,
+            y: 20.01,
+            z: 20,
+          },
+          position: {
+            x: 0.02,
+            y: 1.11,
+            z: 0,
+          },
+          rotation: {
+            x: 0.2,
+            y: 3.16,
+            z: 0,
+          },
+        },
+        duration: 100,
+        positionB: {
+          scale: {
+            x: 20.050000000000008,
+            y: 20.01,
+            z: 20,
+          },
+          position: {
+            x: 0.02,
+            y: -0.49,
+            z: 0,
+          },
+          rotation: {
+            x: 0.8,
+            y: 3.86,
+            z: 0,
+          },
+        },
+      };
+      threeAnimation.addObj(telescopeDescendAndRotate); //add the object to the scene with animation
+    </script>
+  </body>
+</html>
